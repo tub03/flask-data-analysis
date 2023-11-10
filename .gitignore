@@ -1,0 +1,5 @@
+# Ignorar la carpeta de entorno virtual de Python
+.venv/
+
+# Ignorar la carpeta de configuración de IntelliJ IDEA / PyCharm
+.idea/

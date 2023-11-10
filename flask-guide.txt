@@ -1,0 +1,35 @@
+Para crear una aplicación Flask, debemos tener primero configurado el entorno virtual, para poder tener en un solo sitio todas las librerias/dependencias de nuestro proyecto Flask.
+
+Cree una carpeta de proyecto y una .venvcarpeta dentro de:
+	> mkdir myproject
+	> cd myproject
+	> py -3 -m venv .venv
+Activar el entorno 
+Antes de trabajar en su proyecto, active el entorno correspondiente:
+	> .venv\Scripts\activate
+
+Si sale este error:
+"
+.venv\Scripts\activate : No se puede cargar el archivo "C:\Users\nm\Desktop\Dani\Proyectos\Back\python\flask-simple-api-dwn\.venv\Scripts\Activate.ps1 porque la ejecución de scripts está deshabilitada en este sistema. Para
+obtener más información, consulta el tema about_Execution_Policies en https:/go.microsoft.com/fwlink/?LinkID=135170.
+En línea: 1 Carácter: 1
++ .venv\Scripts\activate
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+´
+"
+ > Significa que Windows no permite la ejecución de aplicaciones o descarga de librerias de terceros
+ > Debemos ejecutar el siguiente comando en una terminal 'Windows PowerShell'
+  > Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+Bien ahora, se nos cambiara el formato del CMD y se pondra por delante el nombre del entorno virtual
+ > (.venv) C:\Users\nm\Desktop\Dani\Proyectos\Back\python\flask-app-guide>
+ 
+Ahora podemos instalar las librerias o dependencias que queramos en nuestro entorno virtual activado.
+Como por ejemplo:
+
+ > pip install Flask
+
+Para poder configurar el proyecto en PyCharm correctamente, me he ayudado de este video para ver como lo hace el a la hora de configurar el script a levantar
+ - https://www.youtube.com/watch?v=bZUokrYanFM&ab_channel=MiguelGrinberg -- 6:44

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>RNN Patron</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+     <script>
+        function validateForm() {
+            var inputFile = document.getElementById('archivo');
+            if (inputFile.files.length === 0) {
+                alert("Por favor, selecciona un archivo antes de enviar.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Carga de Archivo CSV</h1>
+    <form method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
+        <label for="archivo">Selecciona un archivo CSV:</label>
+        <input type="file" name="archivo" id="archivo" required>
+        <input type="submit" value="Enviar">
+    </form>
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+
+    <!-- Mostrar datos originales y predicciones si están disponibles -->
+    {% if predictions %}
+        <h2>Predicciones</h2>
+        <img src="data:image/png;base64, {{ plot_url }}" alt="Gráfico de Datos y Predicciones">
+    {% endif %}
+
+    {% if plot_url %}
+    <div>
+        <h2>Gráfico de Mejora del Entrenamiento</h2>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Gráfico de Mejora del Entrenamiento">
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
